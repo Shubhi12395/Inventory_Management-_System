@@ -18,10 +18,18 @@ class Vendor
          puts
 
          when "2"
-            puts "enter the name of the product"
+             puts "enter the name of the product"
             d=gets.chomp.downcase
             lines = File.readlines("products.txt")
-
+              lines = File.readlines("products.txt")
+                  ss=lines.select { |line| 
+                     line.include?(d) }
+                     
+                   arr=ss[0].to_s.split(",")
+                    if(arr[0]!=id)
+                   puts "you can't remove this product as it is other vendor's product !!!!!"
+                    next
+                end
              lines.reject! { |line| 
             line.include?(d) }
              File.open("products.txt","w") { |f| f.puts(lines)}
@@ -30,6 +38,16 @@ class Vendor
          when "3"
                   puts "Enter the product name for updating...."
                  u=gets.chomp.downcase
+                 lines = File.readlines("products.txt")
+              lines = File.readlines("products.txt")
+                  ss=lines.select { |line| 
+                     line.include?(u) }
+                     
+                   arr=ss[0].to_s.split(",")
+                    if(arr[0]!=id)
+                   puts "you can't update this product as it is other vendor's product !!!!!"
+                    next
+                end
                   lines = File.readlines("products.txt")
                   lines.reject! { |line| 
                      line.include?(u) }
