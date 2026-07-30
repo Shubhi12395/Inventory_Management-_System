@@ -1,9 +1,8 @@
 2,jeans,clothing,800,12
-4,printer,electonics,25k,12
 2,washing machine,electronics,25k,10
 2,mobile,electronics,26k,45
-2,ghee,food,800,8
-2,oil,food,80,7
-4,shirts,clothing,500,20
 2,maida,food,34,12
-4,mouse,electronics,400,2
+2,ghee,food,800,3
+4,shirts,clothing,500,16
+4,printer,electonics,25k,9
+4,mouse,electronics,400,0

@@ -57,7 +57,7 @@ class Admin
                      
                arr=ss[0].to_s.split(",")
                num=arr[4].to_i
-                arr[4]=quantity
+                arr[4]="#{num+quantity}"
             lines = File.readlines("products.txt")
                    lines.reject! { |line| 
                      line.include?(pname) }

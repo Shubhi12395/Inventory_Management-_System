@@ -1,2 +1,5 @@
-3,shreya,maida,12
-3,shreya,mouse,2
+3,shreya,ghee,5
+5,priyanka,shirt,4
+3,shreya,oil,12
+3,shreya,printer,3,2026-07-30 15:10:04
+3,shreya,mouse,10,2026-07-30 15:52:18
