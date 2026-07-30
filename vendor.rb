@@ -70,7 +70,7 @@ class Vendor
                 file.each_line do |line|
                  arr=line.split(",")
               if(arr[0]== id)
-                puts "#{line}"
+              puts "product name:#{arr[1]},Category:#{arr[2]},price:#{arr[3]},quantity:#{arr[4]}"   
                end
             end
         end

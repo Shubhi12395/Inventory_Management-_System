@@ -30,8 +30,8 @@ class Customer
             File.open("orders.txt") do |file|
                 file.each_line do |line|
                  arr=line.split(",")
-              if(arr[1]== name)
-                puts "product name: #{arr[2]} and quantity: #{arr[3]} on #{arr[4]}"
+              if(arr[2]== name)
+                puts "product name: #{arr[3]} order id is: #{arr[0]} quantity: #{arr[4]} on #{arr[5]}"
                end
             end
         end
@@ -49,7 +49,7 @@ class Customer
                num=arr[4].to_i
                if(num==0)
                   puts "product is out of stock"
-                 elsif(num-quantity <=0)
+                 elsif(num-quantity <0 ||num-quantity >0)
                        if(num-quantity<0) 
                            puts "#{num} #{pname} are available now"
                            puts "you want to order the product? yes or no"
@@ -65,13 +65,20 @@ class Customer
                         arr[4]="#{num-quantity}"
                         end
                          lines = File.readlines("products.txt")
-                   lines.reject! { |line| 
+                        lines.reject! { |line| 
                      line.include?(pname) }
                      File.open("products.txt","w") { |f| f.puts(lines)}
                      File.open("products.txt","a") do |file|
-                        time=Time.new
                      file.syswrite("#{arr[0]},#{arr[1]},#{arr[2]},#{arr[3]},#{arr[4]}\n")
                      end
+                     File.open("orders.txt","a+") do |file|
+                      i=0
+                        file.each_line do |line|
+                           i+=1
+                        end
+                        file.syswrite("#{i+101},")
+
+                              end
                       File.open("orders.txt","a") do |file|
                         time=Time.new
                      file.syswrite("#{id},#{name},#{pname},#{quantity},#{time.strftime("%Y-%m-%d %H:%M:%S")

@@ -6,4 +6,4 @@
 4,shirts,clothing,500,16
 4,printer,electonics,25k,9
 4,mouse,electronics,400,0
-4,oil,food,150,45
+4,oil,food,150,35

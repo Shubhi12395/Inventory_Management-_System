@@ -17,7 +17,7 @@ class Admin
             File.open("products.txt") do |file|
                 file.each_line do |line|
                  arr=line.split(",")
-                puts line
+                puts "vendor id:#{arr[0]},product name:#{arr[1]},Category:#{arr[2]},price:#{arr[3]},quantity:#{arr[4]}"
                end
             end
         puts 
@@ -25,7 +25,8 @@ class Admin
             puts "Details of all the orders............."
             File.open("orders.txt") do |file|
                 file.each_line do |line|
-                 puts line
+                     arr=line.split(",")
+                puts "order id:#{arr[0]},vendor id:#{arr[1]},Name:#{arr[2]},product_name:#{arr[3]},quantity:#{arr[4]},Time:#{arr[5]}"     
             end
         end
         when "3"
@@ -71,23 +72,26 @@ class Admin
             lines = File.readlines("user.csv")
                     File.open("user.csv") do |file|
                 file.each_line do |line|
-                puts line
+                arr=line.split(",")
+                puts "id:#{arr[0]},name:#{arr[1]},role:#{arr[2]},password:#{arr[3]}"
                end
             end
             puts 
            puts "Details of all the products ............."
             File.open("products.txt") do |file|
                 file.each_line do |line|
-                puts line
+                arr=line.split(",")
+                puts " vendor id:#{arr[0]},product name:#{arr[1]},Category:#{arr[2]},price:#{arr[3]},quantity:#{arr[4]}"
                end
             end
         puts 
           puts "Details of all the orders............."
             File.open("orders.txt") do |file|
                 file.each_line do |line|
-                 puts line
+                     arr=line.split(",")
+                puts "order id:#{arr[0]},vendor id:#{arr[1]},Name:#{arr[2]},product_name:#{arr[3]},quantity:#{arr[4]},Time:#{arr[5]}"     
             end
-        end
+            end
         puts
         when "7"        
             exit
