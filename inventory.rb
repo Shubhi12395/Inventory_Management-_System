@@ -31,20 +31,20 @@ class Inventory
         end
     end
    def self.login
-    r=0
+    $r=0
     3.times do
-   r+= 1
+   $r+= 1
   puts "Enter your name for login ...."
   name= gets.chomp.downcase
   puts "Enter the 4 digit password"
   pwd=gets.chomp
   
-    if(r>=3)
+    if($r>=3 && name.strip.empty? && pwd.strip.empty?)
       puts "three attemps failed"
       exit
     end
   
-  redo if ((name.strip.empty? && pwd.strip.empty?) &&  r < 3)
+  redo if ((name.strip.empty? && pwd.strip.empty?) &&  $r <3)
  pwd=pwd.to_i
   
 
@@ -60,6 +60,7 @@ File.open("user.csv") do |file|
                 Admin.call(name, arr[0])
               when arr[2].downcase=="customer"
                Customer.call(name, arr[0])
+               exit
               when arr[2].downcase== "vendor"
                 Vendor.call(name, arr[0]) 
               end

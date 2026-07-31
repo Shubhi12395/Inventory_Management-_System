@@ -3,17 +3,34 @@ class Customer
     loop do 
     puts "Enter your choice......."
     puts "1. browse product"
-    puts "2. view order histroy"
+    puts "2. view order history"
     puts "3. place an order"
     puts "4. Exit"
 
     choice=gets.chomp
         case choice
          when "1"
-            puts "enter the category- electronics,food,clothing"
+            puts "Enter the choice"
+            puts "1.View all product"
+            puts "2 Browse by Category"
+            puts "3.Search the particular product"
+            
+            ch=gets.chomp
+            case ch
+            when "1"
+               puts "Details of all the product...."
+               File.open("products.txt") do |file|
+              file.each_line do |line|
+               arr=line.split(",")
+               print "product name: #{arr[1]}......."
+                print "price: #{arr[3]}/ Rs."
+                puts 
+               end
+              end
+            when "2"
+               puts "Enter the category: electronics,food.."
             c=gets.chomp.downcase
-
-           puts "Details of all the products............."
+           puts "Details of all the product............."
             File.open("products.txt") do |file|
               file.each_line do |line|
                arr=line.split(",")
@@ -23,14 +40,29 @@ class Customer
                 puts 
                end
                end
-            end 
+            end
+              when "3"
+               puts "Enter the product"
+            c=gets.chomp.downcase
+           puts "Details of the product............."
+            File.open("products.txt") do |file|
+              file.each_line do |line|
+               arr=line.split(",")
+               if(arr[1].downcase==c)
+                print "product name: #{arr[1]}......."
+                print "price: #{arr[3]}/ Rs."
+                puts 
+               end
+               end
+            end
+         end
             puts 
          when "2" 
                puts "Details of all the orders............."
             File.open("orders.txt") do |file|
                 file.each_line do |line|
                  arr=line.split(",")
-              if(arr[2]== name)
+              if(arr[1]== id)
                 puts "product name: #{arr[3]} order id is: #{arr[0]} quantity: #{arr[4]} on #{arr[5]}"
                end
             end
@@ -49,7 +81,7 @@ class Customer
                num=arr[4].to_i
                if(num==0)
                   puts "product is out of stock"
-                 elsif(num-quantity <0 ||num-quantity >0)
+                 elsif(num-quantity <0 ||num-quantity >0 || num-quantity ==0)
                        if(num-quantity<0) 
                            puts "#{num} #{pname} are available now"
                            puts "you want to order the product? yes or no"
@@ -79,13 +111,16 @@ class Customer
                         file.syswrite("#{i+101},")
 
                               end
+                              puts "product name:#{pname}, quantity:#{quantity}, total amount is:#{quantity*arr[3].to_i} Rs."
                       File.open("orders.txt","a") do |file|
                         time=Time.new
                      file.syswrite("#{id},#{name},#{pname},#{quantity},#{time.strftime("%Y-%m-%d %H:%M:%S")
-}\n")
+}\n")                 
+                       
                      end
                       
                      puts "Your order is placed..............."
+                     puts 
                end
          when "4"
             puts "Thankyou for visiting........"

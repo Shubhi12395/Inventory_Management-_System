@@ -40,6 +40,11 @@ class Admin
         when "4"
             puts "enter the name of the product"
             d=gets.chomp.downcase
+            puts "Are you sure? yes/no"
+            m=gets.chomp.downcase
+            if(m=="no")
+               next
+            end
             lines = File.readlines("products.txt")
 
              lines.reject! { |line| 
