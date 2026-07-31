@@ -1,9 +1,9 @@
-2,mobile,electronics,26k,45
+2,mobile,electronics,26000,45
 4,shirts,clothing,500,16
-4,printer,electronics,25k,9
+4,printer,electronics,25000,9
 4,mouse,electronics,400,4
 4,oil,food,150,35
 4,sugar,food,78,40
 2,maida,food,34,2
 2,jeans,clothing,800,10
-2,ghee,food,850,2
+2,ghee,food,870,45

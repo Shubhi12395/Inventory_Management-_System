@@ -1,8 +1,18 @@
 class Vendor
  def self.call(name, id)
-   if($r>=3)
-      exit
-   end
+   
+     
+               File.open("products.txt") do |file|
+              file.each_line do |line|
+               arr=line.split(",")
+                  num=arr[4].to_i
+                  if(num<5 && id==arr[0])
+                     puts "Warning !!!!!!!!!!!!!!"
+               puts"product name: #{arr[1]}......."
+                puts "Quantity: #{arr[4]} left..."
+                  end
+               end
+              end
     loop do puts "Enter your choice......."
     puts "1. Add new product"
     puts "2. remove product"
@@ -82,23 +92,12 @@ class Vendor
                end
             end
         end
-                  puts "Details of all the product...."
-               File.open("products.txt") do |file|
-              file.each_line do |line|
-               arr=line.split(",")
-                  num=arr[4].to_i
-                  if(num<5 && id==arr[0])
-                     puts "Warning !!!!!!!!!!!!!!"
-               puts"product name: #{arr[1]}......."
-                puts "Quantity: #{arr[4]} left..."
-                  end
-               end
-              end
         puts 
       when "5"
          puts "Thankyou for visiting................."
          Inventory.login
     end
+    
   end
 end
 end

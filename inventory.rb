@@ -53,6 +53,8 @@ File.open("user.csv") do |file|
       
            arr=line.split(",")
         if(arr[1].downcase == name && arr[3].to_i==pwd)
+            puts "successfully logged in ...."
+            puts
             puts "welcome ! #{arr[1]} as #{arr[2]} ---------"
 
               case
