@@ -73,4 +73,3 @@ File.open("user.csv") do |file|
   end
 end
 Inventory.signup
-#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

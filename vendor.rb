@@ -39,19 +39,19 @@ class Vendor
                   puts "Enter the product name for updating...."
                  u=gets.chomp.downcase
                  lines = File.readlines("products.txt")
-              lines = File.readlines("products.txt")
                   ss=lines.select { |line| 
                      line.include?(u) }
                      
                    arr=ss[0].to_s.split(",")
                     if(arr[0]!=id)
-                   puts "you can't update this product as it is other vendor's product !!!!!"
+                      puts "you can't update this product as it is other vendor's product !!!!!"
                     next
-                end
+                     end
                   lines = File.readlines("products.txt")
-                  lines.reject! { |line| 
-                     line.include?(u) }
+                  lines.reject! {  |line|
+                      line.include?(u) }
                         File.open("products.txt","w") { |f| f.puts(lines)}
+      
                         puts "Enter the category"
                         category=gets.chomp
                         puts "Enter the price"
@@ -61,7 +61,7 @@ class Vendor
                         File.open("products.txt","a") do |file|
                         file.syswrite("#{id},#{u},#{category},#{price},#{quantity}\n")
                      end
-                    
+                  
             puts "product updated !!!!!!!!"
             puts 
          when "4"
@@ -77,7 +77,7 @@ class Vendor
         puts 
       when "5"
          puts "Thankyou for visitng................."
-         exit  
+         Inventory.login
     end
   end
 end

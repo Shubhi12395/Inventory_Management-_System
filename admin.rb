@@ -94,7 +94,7 @@ class Admin
             end
         puts
         when "7"        
-            exit
+            Inventory.login
         end
     end   
   end
